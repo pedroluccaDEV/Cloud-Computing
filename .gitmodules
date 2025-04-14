@@ -4,3 +4,6 @@
 [submodule "EC2-Jenkins"]
 	path = EC2-Jenkins
 	url = https://github.com/pedroluccaDEV/Jenkins-AWS-EC2.git
+[submodule "Lambda-APIgateway-DynamoDB"]
+	path = Lambda-APIgateway-DynamoDB
+	url = https://github.com/pedroluccaDEV/Lambda-APIgateway-DynamoDB
