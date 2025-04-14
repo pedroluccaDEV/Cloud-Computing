@@ -1,0 +1,6 @@
+[submodule "S3-Static-Website"]
+	path = S3-Static-Website
+	url = https://github.com/pedroluccaDEV/s3-static-website.git
+[submodule "EC2-Jenkins"]
+	path = EC2-Jenkins
+	url = https://github.com/pedroluccaDEV/Jenkins-AWS-EC2.git
