@@ -13,7 +13,7 @@ A missão era clara: **provisionar e automatizar a entrega de uma aplicação es
 
 O diagrama a seguir representa a visão lógica da infraestrutura, destacando como os componentes interagem para garantir escalabilidade automática, alta disponibilidade e tolerância a falhas:
 
-<img src="img/diagrama_atualizado.jpg">
+<img src="img/diagrama_atualizado2.jpg">
 
 **Funcionamento detalhado:**
 
