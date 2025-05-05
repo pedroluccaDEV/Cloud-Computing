@@ -3,12 +3,9 @@
 
 ## 🧩 Contexto do Desafio
 
-Imagine o seguinte cenário: uma startup em rápido crescimento está prestes a lançar uma campanha de marketing que pode gerar um alto volume de tráfego repentino em seu site. A aplicação, uma simples página HTML de boas-vindas, precisa estar sempre disponível, mesmo sob carga. É aí que entra você — responsável por desenhar e implementar uma infraestrutura **escalável, tolerante a falhas e com recuperação automática**.
+Imagine o seguinte cenário: uma startup em rápido crescimento está prestes a lançar uma campanha de marketing que pode gerar um alto volume de tráfego repentino em seu site. A aplicação, uma simples página HTML de boas-vindas, precisa estar sempre disponível, mesmo sob carga. É aí que entra o objetivo — desenhar e implementar uma infraestrutura **escalável, tolerante a falhas e com recuperação automática**.
 
 A missão era clara: **provisionar e automatizar a entrega de uma aplicação estática, utilizando EC2, Auto Scaling Group e Application Load Balaancer, com escalabilidade baseada em métricas de CPU via CloudWatch**.
-
----
-Ótimo! Aqui está uma sugestão de nova seção integrada à sua documentação, logo após o tópico “Definição de Políticas de Escalabilidade com CloudWatch”, antes de “Testes de Carga com Apache JMeter”:
 
 ---
 
@@ -124,16 +121,17 @@ Com a AMI criada, desenvolvemos um **Launch Template** com os seguintes parâmet
 
 ```bash
 #!/bin/bash
+
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
-sudo bash -c "cat > /var/www/html/index.html" <<EOF
-<!DOCTYPE html>
-<html>
-<head><title>Boas-vindas</title></head>
-<body>
-  <h1>Olá! Você foi atendido pela instância: $INSTANCE_ID</h1>
-</body>
-</html>
-EOF
+
+sudo bash -c "echo '<!DOCTYPE html>' > /var/www/html/index.html"
+sudo bash -c "echo '<html>' >> /var/www/html/index.html"
+sudo bash -c "echo '<head><title>Boas-vindas</title></head>' >> /var/www/html/index.html"
+sudo bash -c "echo '<body>' >> /var/www/html/index.html"
+sudo bash -c "echo '<h1>Olá! Você foi atendido pela instância: $INSTANCE_ID</h1>' >> /var/www/html/index.html"
+sudo bash -c "echo '</body>' >> /var/www/html/index.html"
+sudo bash -c "echo '</html>' >> /var/www/html/index.html"
+
 ```
 
 Esse script garante que, mesmo que a instância seja criada por Auto Scaling, ela ainda personalize sua resposta.
